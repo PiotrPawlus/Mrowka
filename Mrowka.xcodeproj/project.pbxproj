@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C13C81811BF0959A002A555F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81801BF0959A002A555F /* AppDelegate.swift */; };
+		C13C81851BF0959A002A555F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81841BF0959A002A555F /* GameScene.swift */; };
+		C13C81871BF0959A002A555F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81861BF0959A002A555F /* GameViewController.swift */; };
+		C13C818A1BF0959A002A555F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C13C81881BF0959A002A555F /* Main.storyboard */; };
+		C13C818C1BF0959A002A555F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C13C818B1BF0959A002A555F /* Assets.xcassets */; };
+		C13C818F1BF0959A002A555F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C13C818D1BF0959A002A555F /* LaunchScreen.storyboard */; };
+		C13C819A1BF0959A002A555F /* MrowkaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81991BF0959A002A555F /* MrowkaTests.swift */; };
+		C13C81A51BF0959A002A555F /* MrowkaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81A41BF0959A002A555F /* MrowkaUITests.swift */; };
+		C13C81B31BF09772002A555F /* GameObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81B21BF09772002A555F /* GameObjectNode.swift */; };
+		C13C81BC1BF09AB7002A555F /* Assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = C13C81BB1BF09AB7002A555F /* Assets.atlas */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C13C81961BF0959A002A555F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C13C81751BF0959A002A555F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C13C817C1BF0959A002A555F;
+			remoteInfo = Mrowka;
+		};
+		C13C81A11BF0959A002A555F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C13C81751BF0959A002A555F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C13C817C1BF0959A002A555F;
+			remoteInfo = Mrowka;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C13C817D1BF0959A002A555F /* Mrowka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mrowka.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C13C81801BF0959A002A555F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C13C81841BF0959A002A555F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		C13C81861BF0959A002A555F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		C13C81891BF0959A002A555F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C13C818B1BF0959A002A555F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C13C818E1BF0959A002A555F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C13C81901BF0959A002A555F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C13C81951BF0959A002A555F /* MrowkaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MrowkaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C13C81991BF0959A002A555F /* MrowkaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MrowkaTests.swift; sourceTree = "<group>"; };
+		C13C819B1BF0959A002A555F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C13C81A01BF0959A002A555F /* MrowkaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MrowkaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C13C81A41BF0959A002A555F /* MrowkaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MrowkaUITests.swift; sourceTree = "<group>"; };
+		C13C81A61BF0959A002A555F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C13C81B21BF09772002A555F /* GameObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObjectNode.swift; sourceTree = "<group>"; };
+		C13C81BB1BF09AB7002A555F /* Assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Assets.atlas; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C13C817A1BF0959A002A555F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C13C81921BF0959A002A555F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C13C819D1BF0959A002A555F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C13C81741BF0959A002A555F = {
+			isa = PBXGroup;
+			children = (
+				C13C817F1BF0959A002A555F /* Mrowka */,
+				C13C81981BF0959A002A555F /* MrowkaTests */,
+				C13C81A31BF0959A002A555F /* MrowkaUITests */,
+				C13C817E1BF0959A002A555F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C13C817E1BF0959A002A555F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C13C817D1BF0959A002A555F /* Mrowka.app */,
+				C13C81951BF0959A002A555F /* MrowkaTests.xctest */,
+				C13C81A01BF0959A002A555F /* MrowkaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C13C817F1BF0959A002A555F /* Mrowka */ = {
+			isa = PBXGroup;
+			children = (
+				C13C81801BF0959A002A555F /* AppDelegate.swift */,
+				C13C81841BF0959A002A555F /* GameScene.swift */,
+				C13C81B21BF09772002A555F /* GameObjectNode.swift */,
+				C13C81861BF0959A002A555F /* GameViewController.swift */,
+				C13C81881BF0959A002A555F /* Main.storyboard */,
+				C13C81901BF0959A002A555F /* Info.plist */,
+				C13C818D1BF0959A002A555F /* LaunchScreen.storyboard */,
+				C13C818B1BF0959A002A555F /* Assets.xcassets */,
+				C13C81B41BF099C3002A555F /* Supporting Files */,
+			);
+			path = Mrowka;
+			sourceTree = "<group>";
+		};
+		C13C81981BF0959A002A555F /* MrowkaTests */ = {
+			isa = PBXGroup;
+			children = (
+				C13C81991BF0959A002A555F /* MrowkaTests.swift */,
+				C13C819B1BF0959A002A555F /* Info.plist */,
+			);
+			path = MrowkaTests;
+			sourceTree = "<group>";
+		};
+		C13C81A31BF0959A002A555F /* MrowkaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C13C81A41BF0959A002A555F /* MrowkaUITests.swift */,
+				C13C81A61BF0959A002A555F /* Info.plist */,
+			);
+			path = MrowkaUITests;
+			sourceTree = "<group>";
+		};
+		C13C81B41BF099C3002A555F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C13C81BB1BF09AB7002A555F /* Assets.atlas */,
+				C13C81B51BF099E1002A555F /* Background */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C13C81B51BF099E1002A555F /* Background */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Background;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C13C817C1BF0959A002A555F /* Mrowka */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C13C81A91BF0959A002A555F /* Build configuration list for PBXNativeTarget "Mrowka" */;
+			buildPhases = (
+				C13C81791BF0959A002A555F /* Sources */,
+				C13C817A1BF0959A002A555F /* Frameworks */,
+				C13C817B1BF0959A002A555F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mrowka;
+			productName = Mrowka;
+			productReference = C13C817D1BF0959A002A555F /* Mrowka.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C13C81941BF0959A002A555F /* MrowkaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C13C81AC1BF0959A002A555F /* Build configuration list for PBXNativeTarget "MrowkaTests" */;
+			buildPhases = (
+				C13C81911BF0959A002A555F /* Sources */,
+				C13C81921BF0959A002A555F /* Frameworks */,
+				C13C81931BF0959A002A555F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C13C81971BF0959A002A555F /* PBXTargetDependency */,
+			);
+			name = MrowkaTests;
+			productName = MrowkaTests;
+			productReference = C13C81951BF0959A002A555F /* MrowkaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C13C819F1BF0959A002A555F /* MrowkaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C13C81AF1BF0959A002A555F /* Build configuration list for PBXNativeTarget "MrowkaUITests" */;
+			buildPhases = (
+				C13C819C1BF0959A002A555F /* Sources */,
+				C13C819D1BF0959A002A555F /* Frameworks */,
+				C13C819E1BF0959A002A555F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C13C81A21BF0959A002A555F /* PBXTargetDependency */,
+			);
+			name = MrowkaUITests;
+			productName = MrowkaUITests;
+			productReference = C13C81A01BF0959A002A555F /* MrowkaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C13C81751BF0959A002A555F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Piotr Pawluś";
+				TargetAttributes = {
+					C13C817C1BF0959A002A555F = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					C13C81941BF0959A002A555F = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = C13C817C1BF0959A002A555F;
+					};
+					C13C819F1BF0959A002A555F = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = C13C817C1BF0959A002A555F;
+					};
+				};
+			};
+			buildConfigurationList = C13C81781BF0959A002A555F /* Build configuration list for PBXProject "Mrowka" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C13C81741BF0959A002A555F;
+			productRefGroup = C13C817E1BF0959A002A555F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C13C817C1BF0959A002A555F /* Mrowka */,
+				C13C81941BF0959A002A555F /* MrowkaTests */,
+				C13C819F1BF0959A002A555F /* MrowkaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C13C817B1BF0959A002A555F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C13C818F1BF0959A002A555F /* LaunchScreen.storyboard in Resources */,
+				C13C818C1BF0959A002A555F /* Assets.xcassets in Resources */,
+				C13C81BC1BF09AB7002A555F /* Assets.atlas in Resources */,
+				C13C818A1BF0959A002A555F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C13C81931BF0959A002A555F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C13C819E1BF0959A002A555F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C13C81791BF0959A002A555F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C13C81851BF0959A002A555F /* GameScene.swift in Sources */,
+				C13C81871BF0959A002A555F /* GameViewController.swift in Sources */,
+				C13C81B31BF09772002A555F /* GameObjectNode.swift in Sources */,
+				C13C81811BF0959A002A555F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C13C81911BF0959A002A555F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C13C819A1BF0959A002A555F /* MrowkaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C13C819C1BF0959A002A555F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C13C81A51BF0959A002A555F /* MrowkaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C13C81971BF0959A002A555F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C13C817C1BF0959A002A555F /* Mrowka */;
+			targetProxy = C13C81961BF0959A002A555F /* PBXContainerItemProxy */;
+		};
+		C13C81A21BF0959A002A555F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C13C817C1BF0959A002A555F /* Mrowka */;
+			targetProxy = C13C81A11BF0959A002A555F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C13C81881BF0959A002A555F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C13C81891BF0959A002A555F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C13C818D1BF0959A002A555F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C13C818E1BF0959A002A555F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C13C81A71BF0959A002A555F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C13C81A81BF0959A002A555F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C13C81AA1BF0959A002A555F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Mrowka/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = piotr.pawlus.Mrowka;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C13C81AB1BF0959A002A555F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Mrowka/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = piotr.pawlus.Mrowka;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C13C81AD1BF0959A002A555F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = MrowkaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = piotr.pawlus.MrowkaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mrowka.app/Mrowka";
+			};
+			name = Debug;
+		};
+		C13C81AE1BF0959A002A555F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MrowkaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = piotr.pawlus.MrowkaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mrowka.app/Mrowka";
+			};
+			name = Release;
+		};
+		C13C81B01BF0959A002A555F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = MrowkaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = piotr.pawlus.MrowkaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Mrowka;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		C13C81B11BF0959A002A555F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MrowkaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = piotr.pawlus.MrowkaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Mrowka;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C13C81781BF0959A002A555F /* Build configuration list for PBXProject "Mrowka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C13C81A71BF0959A002A555F /* Debug */,
+				C13C81A81BF0959A002A555F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C13C81A91BF0959A002A555F /* Build configuration list for PBXNativeTarget "Mrowka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C13C81AA1BF0959A002A555F /* Debug */,
+				C13C81AB1BF0959A002A555F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C13C81AC1BF0959A002A555F /* Build configuration list for PBXNativeTarget "MrowkaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C13C81AD1BF0959A002A555F /* Debug */,
+				C13C81AE1BF0959A002A555F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C13C81AF1BF0959A002A555F /* Build configuration list for PBXNativeTarget "MrowkaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C13C81B01BF0959A002A555F /* Debug */,
+				C13C81B11BF0959A002A555F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C13C81751BF0959A002A555F /* Project object */;
+}
