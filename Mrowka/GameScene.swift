@@ -164,7 +164,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return tapToStart
     }
     
-    
+    // MARK: - Handling the touch
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // If player is moving do nothing else set player dynamic to true, and remove tapToStart from screen
+        if !player.physicsBody!.dynamic {
+            tapToStart.removeFromParent()
+            player.physicsBody?.dynamic = true
+        }
+    }
     
 }
 
