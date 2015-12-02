@@ -122,6 +122,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let sprite = SKSpriteNode(imageNamed: "Player")
         playerNode.addChild(sprite)
         
+        // Physics Body
+        playerNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width/2)
+        playerNode.physicsBody?.dynamic = false
+        playerNode.physicsBody?.allowsRotation = false //true
+        
+        playerNode.physicsBody?.restitution = 1.0
+        playerNode.physicsBody?.friction = 0.0
+        playerNode.physicsBody?.angularDamping = 0.0
+        playerNode.physicsBody?.linearDamping = 0.0
+        
+        playerNode.physicsBody?.usesPreciseCollisionDetection = true
+        playerNode.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Player
+        // Don't simulate any collison
+        playerNode.physicsBody?.collisionBitMask = 0
+        playerNode.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Point | CollisionCategoryBitmask.Walls
         
         return playerNode
     }
@@ -148,6 +163,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tapToStart.addChild(sprite)
         return tapToStart
     }
+    
+    
     
 }
 
