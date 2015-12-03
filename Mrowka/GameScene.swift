@@ -90,7 +90,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         foregroundNode.addChild(player)
         
         // Foreground -> Points
-        point = createPoints()
+        point = createPoint()
         foregroundNode.addChild(point)
         
         // Tap to start
@@ -142,7 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // MARK: - Create Point
-    func createPoints() -> SKSpriteNode {
+    func createPoint() -> SKSpriteNode {
         let pointNode = SKSpriteNode()
         
         // Losowanie z wielkosci ekranu - 20.0 z przesunieciem 10.0
@@ -178,10 +178,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 /*
 
-1. Fizyka do Ludzia
-2. ToucheBegan do znikania taptostart
-3. kolizje do ludzia i gwiazdy
-4. kolizje do scian
-5. akcelerometr
-
+1. kolizje do ludzia i gwiazdy
+2. kolizje do scian
+3. akcelerometr
+4. GRAFIKA ;(
 */
