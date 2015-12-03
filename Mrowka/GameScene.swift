@@ -123,7 +123,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerNode.addChild(sprite)
         
         // Physics Body
-        playerNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width/2)
+        playerNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
         playerNode.physicsBody?.dynamic = false
         playerNode.physicsBody?.allowsRotation = false //true
         
@@ -146,7 +146,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let pointNode = SKSpriteNode()
         
         // Losowanie z wielkosci ekranu - 20.0 z przesunieciem 10.0
-        pointNode.position = CGPoint(x: CGFloat(arc4random() % UInt32(frame.maxX - 20.0)) + 10.0, y: CGFloat(arc4random() % UInt32(frame.maxY - 20.0)) + 10.0 )
+//        pointNode.position = CGPoint(x: CGFloat(arc4random() % UInt32(frame.maxX - 20.0)) + 10.0, y: CGFloat(arc4random() % UInt32(frame.maxY - 20.0)) + 10.0 )
+        pointNode.position = CGPoint(x: self.frame.maxX / 2, y: self.frame.maxY / 2 - 100.0 )
+
         print("\(pointNode.position.x) : \(pointNode.position.y)")
 
         let sprite = SKSpriteNode(imageNamed: "Star")
@@ -156,9 +158,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pointNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
         pointNode.physicsBody?.dynamic = false
         // Colision
+        pointNode.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Point
         pointNode.physicsBody?.collisionBitMask = 0
-        pointNode.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Player
-        
         return pointNode
     }
     
