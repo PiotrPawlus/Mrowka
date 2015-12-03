@@ -151,6 +151,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         let sprite = SKSpriteNode(imageNamed: "Star")
         pointNode.addChild(sprite)
+        
+        // Physics Body 
+        pointNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
+        pointNode.physicsBody?.dynamic = false
+        // Colision
+        pointNode.physicsBody?.collisionBitMask = 0
+        pointNode.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Player
+        
         return pointNode
     }
     
