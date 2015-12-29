@@ -105,6 +105,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameOver = false
     }
     
+    func test() {
+        point = createPoint()
+        foregroundNode.addChild(point)
+    }
+    
     // MARK: - Create Walls
     func createWalls() -> (SKNode, SKNode, SKNode, SKNode) {
         let upWall = SKNode()
@@ -149,12 +154,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        pointNode.position = CGPoint(x: CGFloat(arc4random() % UInt32(frame.maxX - 20.0)) + 10.0, y: CGFloat(arc4random() % UInt32(frame.maxY - 20.0)) + 10.0 )
         pointNode.position = CGPoint(x: self.frame.maxX / 2, y: self.frame.maxY / 2 - 100.0 )
 
-        print("\(pointNode.position.x) : \(pointNode.position.y)")
+//        print("\(pointNode.position.x) : \(pointNode.position.y)")
 
         let sprite = SKSpriteNode(imageNamed: "Star")
         pointNode.addChild(sprite)
         
         // Physics Body 
+        pointNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
+        pointNode.physicsBody?.dynamic = false
+        // Colision
+        pointNode.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Point
+        pointNode.physicsBody?.collisionBitMask = 0
+        pointNode.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Player
+        return pointNode
+    }
+    
+    // MARK: - Create Point TEST
+    func createPointTEST() -> SKSpriteNode {
+        let pointNode = SKSpriteNode()
+        
+        // Losowanie z wielkosci ekranu - 20.0 z przesunieciem 10.0
+        pointNode.position = CGPoint(x: CGFloat(arc4random() % UInt32(frame.maxX - 20.0)) + 10.0, y: CGFloat(arc4random() % UInt32(frame.maxY - 20.0)) + 10.0 )
+//        pointNode.position = CGPoint(x: self.frame.maxX / 2, y: self.frame.maxY / 2 - 100.0 )
+        
+        //        print("\(pointNode.position.x) : \(pointNode.position.y)")
+        
+        let sprite = SKSpriteNode(imageNamed: "Star")
+        pointNode.addChild(sprite)
+        
+        // Physics Body
         pointNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
         pointNode.physicsBody?.dynamic = false
         // Colision
@@ -187,6 +215,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         let wichNode = (contact.bodyA.node != player) ? contact.bodyA.node : contact.bodyB.node
         wichNode?.removeFromParent()
+        // PO DODANIU OBSLUGI AKCELEMETRU ZMIENIC NA createPoint() !!!
+        // USUNAC createPointTEST()
+        point = createPointTEST()
+        foregroundNode.addChild(point)
     }
 }
 
