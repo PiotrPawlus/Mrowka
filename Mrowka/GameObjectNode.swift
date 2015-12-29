@@ -18,12 +18,8 @@ struct CollisionCategoryBitmask {
 class GameObjectNode: SKNode {
     
     func collisionWithPlayer(player: SKNode) -> Bool {
+        self.removeFromParent()
         return false
     }
-    
-    func checkNodeRemoval(playerY: CGFloat) {
-        if playerY > self.position.y + 300.0 {
-            self.removeFromParent()
-        }
-    }
 }
+

@@ -160,6 +160,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Colision
         pointNode.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Point
         pointNode.physicsBody?.collisionBitMask = 0
+        pointNode.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Player
         return pointNode
     }
     
@@ -182,13 +183,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func didBeginContact(contact: SKPhysicsContact) {
+
+        let wichNode = (contact.bodyA.node != player) ? contact.bodyA.node : contact.bodyB.node
+        wichNode?.removeFromParent()
+    }
 }
 
 
 /*
 
 1. kolizje do ludzia i gwiazdy
-2. kolizje do scian
-3. akcelerometr
-4. GRAFIKA ;(
+2. akcelerometr
+3. Fizyka dla ścian
+4. Kolizje do scian
+5. GRAFIKA ;(
 */
