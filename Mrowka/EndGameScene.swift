@@ -25,6 +25,24 @@ class EndGameScene: SKScene {
         lblTryAgain.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         lblTryAgain.text = "Tap To Try Again"
         addChild(lblTryAgain)
+        
+        let lblUserScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        lblUserScore.fontSize = 30
+        lblUserScore.fontColor = SKColor.redColor()
+        lblUserScore.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2 - 80.0)
+        lblUserScore.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
+        lblUserScore.text = "Your score: \(GameState.sharedInstance.score)"
+        addChild(lblUserScore)
+
+        
+        // High Score
+        let lblHighScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        lblHighScore.fontSize = 30
+        lblHighScore.fontColor = SKColor.blueColor()
+        lblHighScore.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2 + 80.0)
+        lblHighScore.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
+        lblHighScore.text = String(format: "High Score: %d", GameState.sharedInstance.highScore)
+        addChild(lblHighScore)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

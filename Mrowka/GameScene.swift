@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var labelScore: SKLabelNode!
     var tapToStart: SKSpriteNode!
     
-    var counter = 0
+    var score = 0
     
     /* Player */
     var player: SKNode!
@@ -116,7 +116,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         labelScore.fontSize = 30
         labelScore.fontColor = SKColor.blackColor()
         labelScore.position = CGPoint(x: self.size.width / 2, y: self.size.height - 50.0)
-        labelScore.text = "\(counter) points"
+        labelScore.text = "\(GameState.sharedInstance.score) points"
         hudNode.addChild(labelScore)
         
         // CoreMotion
@@ -128,6 +128,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.yAcceleration = (CGFloat(acceleration.y) * 0.75) + (self.yAcceleration * 0.25)
         }
         
+        GameState.sharedInstance.score = 0
         gameOver = false
     }
 
@@ -257,12 +258,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let name = wichNode?.name {
             if name == "point" {
                 wichNode?.removeFromParent()
-                counter += 1
-                labelScore.text = "\(counter) points"
+                GameState.sharedInstance.score += 1
+                labelScore.text = "\(GameState.sharedInstance.score) points"
                 point = createPoint()
                 foregroundNode.addChild(point)
             } else if name == "wall" {
-                player.physicsBody?.dynamic = false
+                
                 endGame()
             }
         }
@@ -282,6 +283,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func endGame() {
         gameOver = true
         
+        GameState.sharedInstance.saveState()
+        
         let reval = SKTransition.fadeWithDuration(0.5)
         let endGameScene = EndGameScene(size: self.size)
         self.view!.presentScene(endGameScene, transition: reval)
@@ -291,7 +294,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 /*
 
-1. Licznik wyników
-2. Utrudnianie gry co pare zebarnych gwiazdek
-3. GRAFIKA ;(
+1. Zapisywanie najwyższego wyniku
+http://stackoverflow.com/questions/25227921/sprite-kit-save-highest-score
+2. Wyswietlanie wyniku uzykownika i najwyszego wyniku w widoku konca gry
+3. Utrudnianie gry co pare zebarnych gwiazdek
+4. GRAFIKA ;(
 */
