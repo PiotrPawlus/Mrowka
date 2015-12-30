@@ -34,6 +34,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var labelScore: SKLabelNode!
     var tapToStart: SKSpriteNode!
     
+    var counter = 0
+    
     /* Player */
     var player: SKNode!
     var point: SKNode!
@@ -108,8 +110,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tapToStart = createTapToStart()
         hudNode.addChild(tapToStart)
         
+        // Bulid the HUD
         
-
+        labelScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        labelScore.fontSize = 30
+        labelScore.fontColor = SKColor.blackColor()
+        labelScore.position = CGPoint(x: self.size.width / 2, y: self.size.height - 50.0)
+        labelScore.text = "\(counter) points"
+        hudNode.addChild(labelScore)
         
         // CoreMotion
         motionManager.accelerometerUpdateInterval = 0.2
@@ -207,7 +215,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let pointNode = SKSpriteNode()
         pointNode.name = "point"
         
-        // Losowanie z wielkosci ekranu - 20.0 z przesunieciem 10.0
+        // Losowanie z wielkosci ekranu
         pointNode.position = CGPoint(x: CGFloat(arc4random() % UInt32(frame.maxX - 20.0)) + 10.0, y: CGFloat(arc4random() % UInt32(frame.maxY - 20.0)) + 10.0 )
         let sprite = SKSpriteNode(imageNamed: "Star")
         pointNode.addChild(sprite)
@@ -249,6 +257,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let name = wichNode?.name {
             if name == "point" {
                 wichNode?.removeFromParent()
+                counter += 1
+                labelScore.text = "\(counter) points"
                 point = createPoint()
                 foregroundNode.addChild(point)
             } else if name == "wall" {
@@ -259,7 +269,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(currentTime: NSTimeInterval) {
-        
+        if gameOver {
+            return
+        }
     }
     
     // MARK: - Simulate Physics
@@ -279,7 +291,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 /*
 
-1. Game over
-2. Reset the game
+1. Licznik wyników
+2. Utrudnianie gry co pare zebarnych gwiazdek
 3. GRAFIKA ;(
 */
