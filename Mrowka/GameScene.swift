@@ -246,7 +246,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 point = createPoint()
                 foregroundNode.addChild(point)
             } else if name == "wall" {
-                print("down/up wall")
+                player.physicsBody?.dynamic = false
             }
         }
     }
