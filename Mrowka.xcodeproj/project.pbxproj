@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C114D73D1C34497E00E40C35 /* EndGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C114D73C1C34497E00E40C35 /* EndGameScene.swift */; };
 		C13C81811BF0959A002A555F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81801BF0959A002A555F /* AppDelegate.swift */; };
 		C13C81851BF0959A002A555F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81841BF0959A002A555F /* GameScene.swift */; };
 		C13C81871BF0959A002A555F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81861BF0959A002A555F /* GameViewController.swift */; };
@@ -15,7 +16,6 @@
 		C13C818F1BF0959A002A555F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C13C818D1BF0959A002A555F /* LaunchScreen.storyboard */; };
 		C13C819A1BF0959A002A555F /* MrowkaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81991BF0959A002A555F /* MrowkaTests.swift */; };
 		C13C81A51BF0959A002A555F /* MrowkaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81A41BF0959A002A555F /* MrowkaUITests.swift */; };
-		C13C81B31BF09772002A555F /* GameObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81B21BF09772002A555F /* GameObjectNode.swift */; };
 		C13C81BC1BF09AB7002A555F /* Assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = C13C81BB1BF09AB7002A555F /* Assets.atlas */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C114D73C1C34497E00E40C35 /* EndGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndGameScene.swift; sourceTree = "<group>"; };
 		C13C817D1BF0959A002A555F /* Mrowka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mrowka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13C81801BF0959A002A555F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C13C81841BF0959A002A555F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		C13C81A01BF0959A002A555F /* MrowkaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MrowkaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13C81A41BF0959A002A555F /* MrowkaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MrowkaUITests.swift; sourceTree = "<group>"; };
 		C13C81A61BF0959A002A555F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C13C81B21BF09772002A555F /* GameObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObjectNode.swift; sourceTree = "<group>"; };
 		C13C81BB1BF09AB7002A555F /* Assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Assets.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +105,7 @@
 			children = (
 				C13C81801BF0959A002A555F /* AppDelegate.swift */,
 				C13C81841BF0959A002A555F /* GameScene.swift */,
-				C13C81B21BF09772002A555F /* GameObjectNode.swift */,
+				C114D73C1C34497E00E40C35 /* EndGameScene.swift */,
 				C13C81861BF0959A002A555F /* GameViewController.swift */,
 				C13C81881BF0959A002A555F /* Main.storyboard */,
 				C13C81901BF0959A002A555F /* Info.plist */,
@@ -284,8 +284,8 @@
 			files = (
 				C13C81851BF0959A002A555F /* GameScene.swift in Sources */,
 				C13C81871BF0959A002A555F /* GameViewController.swift in Sources */,
-				C13C81B31BF09772002A555F /* GameObjectNode.swift in Sources */,
 				C13C81811BF0959A002A555F /* AppDelegate.swift in Sources */,
+				C114D73D1C34497E00E40C35 /* EndGameScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +514,7 @@
 				C13C81AB1BF0959A002A555F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C13C81AC1BF0959A002A555F /* Build configuration list for PBXNativeTarget "MrowkaTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +523,7 @@
 				C13C81AE1BF0959A002A555F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C13C81AF1BF0959A002A555F /* Build configuration list for PBXNativeTarget "MrowkaUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +532,7 @@
 				C13C81B11BF0959A002A555F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

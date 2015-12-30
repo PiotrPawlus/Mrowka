@@ -9,6 +9,12 @@
 import SpriteKit
 import CoreMotion
 
+struct CollisionCategoryBitmask {
+    static let Player: UInt32 = 0x00
+    static let Point: UInt32 = 0x01
+    static let Walls: UInt32 = 0x02
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Porperties
@@ -247,6 +253,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 foregroundNode.addChild(point)
             } else if name == "wall" {
                 player.physicsBody?.dynamic = false
+                endGame()
             }
         }
     }
@@ -259,13 +266,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didSimulatePhysics() {
         player.physicsBody?.velocity = CGVector(dx: xAcceleration * 400, dy: yAcceleration * 400)
     }
+    
+    func endGame() {
+        gameOver = true
+        
+        let reval = SKTransition.fadeWithDuration(0.5)
+        let endGameScene = EndGameScene(size: self.size)
+        self.view!.presentScene(endGameScene, transition: reval)
+    }
 }
 
 
 /*
 
-1. Kolizje do scian
-2. Game over
-3. Reset the game
-4. GRAFIKA ;(
+1. Game over
+2. Reset the game
+3. GRAFIKA ;(
 */
