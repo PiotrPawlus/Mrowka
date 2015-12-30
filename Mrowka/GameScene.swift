@@ -81,13 +81,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         // Midground -> Add the walls
-        upWall = createWalls().0
-        midgroundNode.addChild(upWall)
-        downWall = createWalls().1
+        downWall = setDownWall()
         midgroundNode.addChild(downWall)
-        leftWall = createWalls().2
+        upWall = setUpWall()
+        midgroundNode.addChild(upWall)
+        leftWall = setLeftWall()
         midgroundNode.addChild(leftWall)
-        rightWall = createWalls().3
+        rightWall = setRightWall()
         midgroundNode.addChild(rightWall)
 
         // Foreground -> Add the player
@@ -113,21 +113,61 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.xAcceleration = (CGFloat(acceleration.x) * 0.75) + (self.xAcceleration * 0.25)
             self.yAcceleration = (CGFloat(acceleration.y) * 0.75) + (self.yAcceleration * 0.25)
         }
-
-        
         
         gameOver = false
     }
 
     
     // MARK: - Create Walls
-    func createWalls() -> (SKNode, SKNode, SKNode, SKNode) {
-        let upWall = SKNode()
-        let downWall = SKNode()
-        let leftWall = SKNode()
-        let rightWall = SKNode()
-        return (upWall, downWall, leftWall, rightWall)
+    func setDownWall() -> SKNode  {
+        // Tworzenie dolnej sciany
+        let down = SKNode()
+        down.name = "wall"
+        down.physicsBody = SKPhysicsBody(edgeFromPoint: CGPoint(x: CGRectGetMinX(self.frame), y: CGRectGetMinY(self.frame)), toPoint: CGPoint(x: CGRectGetMaxX(self.frame), y: CGRectGetMinY(self.frame)))
+        
+        down.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Walls
+        down.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Player
+        down.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Player
+        return down
     }
+    
+    func setUpWall() -> SKNode  {
+        // Tworzenie gornej sciany
+        let up = SKNode()
+        up.name = "wall"
+        up.physicsBody = SKPhysicsBody(edgeFromPoint: CGPoint(x: CGRectGetMinX(self.frame), y: CGRectGetMaxY(self.frame)), toPoint: CGPoint(x: CGRectGetMaxX(self.frame), y: CGRectGetMaxY(self.frame)))
+        
+        up.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Walls
+        up.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Player
+        up.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Player
+        return up
+    }
+    
+    func setLeftWall() -> SKNode  {
+        // Tworzenie lewej sciany
+        let left = SKNode()
+        left.name = "wall"
+        left.physicsBody = SKPhysicsBody(edgeFromPoint: CGPoint(x: CGRectGetMinX(self.frame), y: CGRectGetMinY(self.frame)), toPoint: CGPoint(x: CGRectGetMinX(self.frame), y: CGRectGetMaxY(self.frame)))
+        
+        left.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Walls
+        left.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Player
+        left.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Player
+        return left
+    }
+    
+    func setRightWall() -> SKNode  {
+        // Tworzenie lewej sciany
+        let right = SKNode()
+        right.name = "wall"
+        right.physicsBody = SKPhysicsBody(edgeFromPoint: CGPoint(x: CGRectGetMaxX(self.frame), y: CGRectGetMinY(self.frame)), toPoint: CGPoint(x: CGRectGetMaxX(self.frame), y: CGRectGetMaxY(self.frame)))
+        
+        right.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Walls
+        right.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Player
+        right.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Player
+        return right
+    }
+    
+    
     
     // MARKL: - Create Player
     func createPlayer() -> SKNode {
@@ -160,12 +200,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func createPoint() -> SKSpriteNode {
         let pointNode = SKSpriteNode()
         pointNode.name = "point"
+        
         // Losowanie z wielkosci ekranu - 20.0 z przesunieciem 10.0
         pointNode.position = CGPoint(x: CGFloat(arc4random() % UInt32(frame.maxX - 20.0)) + 10.0, y: CGFloat(arc4random() % UInt32(frame.maxY - 20.0)) + 10.0 )
-        //pointNode.position = CGPoint(x: self.frame.maxX / 2, y: self.frame.maxY / 2 - 100.0 )
-
-//        print("\(pointNode.position.x) : \(pointNode.position.y)")
-
         let sprite = SKSpriteNode(imageNamed: "Star")
         pointNode.addChild(sprite)
         
@@ -199,6 +236,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    // MARK: - Handling Contact
     func didBeginContact(contact: SKPhysicsContact) {
 
         let wichNode = (contact.bodyA.node != player) ? contact.bodyA.node : contact.bodyB.node
@@ -207,6 +245,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 wichNode?.removeFromParent()
                 point = createPoint()
                 foregroundNode.addChild(point)
+            } else if name == "wall" {
+                print("down/up wall")
             }
         }
     }
@@ -215,6 +255,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    // MARK: - Simulate Physics
     override func didSimulatePhysics() {
         player.physicsBody?.velocity = CGVector(dx: xAcceleration * 400, dy: yAcceleration * 400)
     }
@@ -223,8 +264,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 /*
 
-1. akcelerometr
-2. Fizyka dla ścian
-3. Kolizje do scian
+1. Kolizje do scian
+2. Game over
+3. Reset the game
 4. GRAFIKA ;(
 */
