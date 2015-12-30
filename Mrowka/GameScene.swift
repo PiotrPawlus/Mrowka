@@ -118,11 +118,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         gameOver = false
     }
-    
-    func test() {
-        point = createPoint()
-        foregroundNode.addChild(point)
-    }
+
     
     // MARK: - Create Walls
     func createWalls() -> (SKNode, SKNode, SKNode, SKNode) {
