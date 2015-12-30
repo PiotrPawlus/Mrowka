@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -34,6 +35,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /* Game over flag */
     var gameOver = false
     
+    /* Acceleration */
+    let motionManager = CMMotionManager()
+    var xAcceleration: CGFloat = 0.0
+    var yAcceleration: CGFloat = 0.0
     
     // MARK: - App Life Cycle
     required init?(coder aDecoder: NSCoder) {
@@ -101,6 +106,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         
         // CoreMotion
+        motionManager.accelerometerUpdateInterval = 0.2
+        motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!) {
+            (accelerometerData: CMAccelerometerData?, error: NSError?) in
+            let acceleration = accelerometerData!.acceleration
+            self.xAcceleration = (CGFloat(acceleration.x) * 0.75) + (self.xAcceleration * 0.25)
+            self.yAcceleration = (CGFloat(acceleration.y) * 0.75) + (self.yAcceleration * 0.25)
+        }
+
+        
         
         gameOver = false
     }
@@ -130,7 +144,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Physics Body
         playerNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
         playerNode.physicsBody?.dynamic = false
-        playerNode.physicsBody?.allowsRotation = false //true
+        playerNode.physicsBody?.allowsRotation = true //true
         
         playerNode.physicsBody?.restitution = 1.0
         playerNode.physicsBody?.friction = 0.0
@@ -224,14 +238,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
+    override func update(currentTime: NSTimeInterval) {
+        
+    }
+    
+    override func didSimulatePhysics() {
+        player.physicsBody?.velocity = CGVector(dx: xAcceleration * 400, dy: yAcceleration * 400)
+    }
 }
 
 
 /*
 
-1. kolizje do ludzia i gwiazdy
-2. akcelerometr
-3. Fizyka dla ścian
-4. Kolizje do scian
-5. GRAFIKA ;(
+1. akcelerometr
+2. Fizyka dla ścian
+3. Kolizje do scian
+4. GRAFIKA ;(
 */
