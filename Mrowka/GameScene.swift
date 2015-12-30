@@ -112,6 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Bulid the HUD
         
+        GameState.sharedInstance.score = 0
         labelScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
         labelScore.fontSize = 30
         labelScore.fontColor = SKColor.blackColor()
@@ -121,17 +122,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // CoreMotion
         motionManager.accelerometerUpdateInterval = 0.2
-        motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!) {
-            (accelerometerData: CMAccelerometerData?, error: NSError?) in
-            let acceleration = accelerometerData!.acceleration
-            self.xAcceleration = (CGFloat(acceleration.x) * 0.75) + (self.xAcceleration * 0.25)
-            self.yAcceleration = (CGFloat(acceleration.y) * 0.75) + (self.yAcceleration * 0.25)
-        }
+        motionMenagerUpdates(motionManager, xAcc: 0.75, yAcc: 0.75)
         
-        GameState.sharedInstance.score = 0
         gameOver = false
     }
 
+    func motionMenagerUpdates(motnionMan: CMMotionManager ,xAcc: CGFloat, yAcc: CGFloat) {
+        motnionMan.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!) {
+            (accelerometerData: CMAccelerometerData?, error: NSError?) in
+            let acceleration = accelerometerData!.acceleration
+            self.xAcceleration = (CGFloat(acceleration.x) * xAcc) + (self.xAcceleration * 0.25)
+            self.yAcceleration = (CGFloat(acceleration.y) * yAcc) + (self.yAcceleration * 0.25)
+        }
+    }
     
     // MARK: - Create Walls
     func setDownWall() -> SKNode  {
@@ -269,7 +272,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    // MARK: - update
     override func update(currentTime: NSTimeInterval) {
+        if GameState.sharedInstance.score > 5 {
+            motionMenagerUpdates(motionManager, xAcc: 1.25, yAcc: 1.25)
+        }
         if gameOver {
             return
         }
@@ -280,6 +287,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.velocity = CGVector(dx: xAcceleration * 400, dy: yAcceleration * 400)
     }
     
+    // MARK: - Handling End Game
     func endGame() {
         gameOver = true
         
@@ -294,9 +302,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 /*
 
-1. Zapisywanie najwyższego wyniku
-http://stackoverflow.com/questions/25227921/sprite-kit-save-highest-score
-2. Wyswietlanie wyniku uzykownika i najwyszego wyniku w widoku konca gry
-3. Utrudnianie gry co pare zebarnych gwiazdek
-4. GRAFIKA ;(
+1. Utrudnianie gry co pare zebarnych gwiazdek
+2. GRAFIKA ;(
 */
