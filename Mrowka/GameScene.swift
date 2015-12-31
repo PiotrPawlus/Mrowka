@@ -48,6 +48,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var xAcceleration: CGFloat = 0.0
     var yAcceleration: CGFloat = 0.0
     
+    var xAcc: CGFloat = 0.75
+    var yAcc: CGFloat = 0.75
+    
     // MARK: - App Life Cycle
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -118,7 +121,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // CoreMotion
         motionManager.accelerometerUpdateInterval = 0.2
-        motionMenagerUpdates(motionManager, xAcc: 0.75, yAcc: 0.75)
+        motionMenagerUpdates(motionManager, xAcc: xAcc, yAcc: yAcc)
         
         gameOver = false
     }
@@ -194,8 +197,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Physics Body
         playerNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
         playerNode.physicsBody?.dynamic = false
-        playerNode.physicsBody?.allowsRotation = true //true
-        
+        playerNode.physicsBody?.allowsRotation = false //true
         playerNode.physicsBody?.restitution = 1.0
         playerNode.physicsBody?.friction = 0.0
         playerNode.physicsBody?.angularDamping = 0.0
@@ -206,7 +208,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Don't simulate any collison
         playerNode.physicsBody?.collisionBitMask = 0
         playerNode.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Point | CollisionCategoryBitmask.Walls
-        
         return playerNode
     }
     
@@ -263,10 +264,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if name == "point" {
                 wichNode?.removeFromParent()
                 GameState.sharedInstance.score += 1
+                xAcc += 0.05
+                yAcc += 0.05
+                motionMenagerUpdates(motionManager, xAcc: xAcc, yAcc: yAcc)
                 labelScore.text = "\(GameState.sharedInstance.score) points"
                 addPoint()
             } else if name == "wall" {
-                
                 endGame()
             }
         }
@@ -274,9 +277,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - update
     override func update(currentTime: NSTimeInterval) {
-        if GameState.sharedInstance.score > 5 {
-            motionMenagerUpdates(motionManager, xAcc: 1.25, yAcc: 1.25)
-        }
         if gameOver {
             return
         }
