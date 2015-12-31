@@ -102,10 +102,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player = createPlayer()
         foregroundNode.addChild(player)
         
-        // Foreground -> Points
-        point = createPoint()
-        foregroundNode.addChild(point)
-        
         // Tap to start
         tapToStart = createTapToStart()
         hudNode.addChild(tapToStart)
@@ -234,6 +230,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return pointNode
     }
     
+    func addPoint() {
+        point = createPoint()
+        foregroundNode.addChild(point)
+    }
     
     // MARKL: - Create Tap To Start Node
     func createTapToStart() -> SKSpriteNode {
@@ -250,6 +250,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // If player is moving do nothing else set player dynamic to true, and remove tapToStart from screen
         if !player.physicsBody!.dynamic {
             tapToStart.removeFromParent()
+            addPoint()
             player.physicsBody?.dynamic = true
         }
     }
@@ -263,8 +264,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 wichNode?.removeFromParent()
                 GameState.sharedInstance.score += 1
                 labelScore.text = "\(GameState.sharedInstance.score) points"
-                point = createPoint()
-                foregroundNode.addChild(point)
+                addPoint()
             } else if name == "wall" {
                 
                 endGame()
