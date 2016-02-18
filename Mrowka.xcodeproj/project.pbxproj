@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C10D814B1C6CA03B0094F40F /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D814A1C6CA03B0094F40F /* PlayerNode.swift */; };
 		C114D73D1C34497E00E40C35 /* EndGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C114D73C1C34497E00E40C35 /* EndGameScene.swift */; };
 		C114D73F1C34693F00E40C35 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C114D73E1C34693F00E40C35 /* GameState.swift */; };
 		C13C81811BF0959A002A555F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C81801BF0959A002A555F /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C10D814A1C6CA03B0094F40F /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		C114D73C1C34497E00E40C35 /* EndGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndGameScene.swift; sourceTree = "<group>"; };
 		C114D73E1C34693F00E40C35 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		C13C817D1BF0959A002A555F /* Mrowka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mrowka.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,7 @@
 			children = (
 				C13C81801BF0959A002A555F /* AppDelegate.swift */,
 				C13C81841BF0959A002A555F /* GameScene.swift */,
+				C10D814A1C6CA03B0094F40F /* PlayerNode.swift */,
 				C114D73C1C34497E00E40C35 /* EndGameScene.swift */,
 				C114D73E1C34693F00E40C35 /* GameState.swift */,
 				C13C81861BF0959A002A555F /* GameViewController.swift */,
@@ -290,6 +293,7 @@
 				C114D73F1C34693F00E40C35 /* GameState.swift in Sources */,
 				C13C81811BF0959A002A555F /* AppDelegate.swift in Sources */,
 				C114D73D1C34497E00E40C35 /* EndGameScene.swift in Sources */,
+				C10D814B1C6CA03B0094F40F /* PlayerNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
